@@ -16,3 +16,12 @@ As far as I know, below is the restrictions created by ExamBrowser:
 
 ## Main Idea
 When I was doing an exam using ExamBrowser, the ExamBrowser (exambrowser.exe) then suddenly stopped working because of something unknown but the started browser (Google Chrome / chrome.exe) keeps running. However, the restrictions created by exambrowser are also "stopped working". From that, I can conclude that the started child process (chrome.exe) doesn't get killed even its parent (exambrowser.exe) killed which will allow the users to bypass the restriction created by ExamBrowser (includes some unwanted behavior: like opening calculator, opening book, etc). Finally, I created a simple Python script called ExamKill to monitor if there was ExamBrowser and Chrome Browser are running. If so, it will kill the ExamBrowser, and should bypass ExamBrowser's created restrictions.
+
+## Usage
+Run this script before both ExamBrowser and Google Chrome started. To hide, you can pack it using pyinstaller with ```--noconsole``` argument. You can also use another tool like py2exe or something else. 
+
+## How Does it Work?
+After you run the script, it will start to monitor Google Chrome and ExamBrowser processes. When ExamKill reached its expected condition (where both Google Chrome and ExamBrowser are running), it will kill ExamBrowser's process in order to bypass ExamBrowser's created restriction.
+
+## Disclaimer
+This script is intended only for educational purposes.
